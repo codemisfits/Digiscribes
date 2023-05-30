@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .bg-light-gray {
+      background-color: #d3d3d3;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    .nav-link {
+      color: black;
+    }
+
+    body {
+      position: relative;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blur-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      overflow: hidden;
+      filter: blur(10px);
+    }
+
+    .container-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .options-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+      background-color: #fff;
+    }
+  </style>
+
+  <title>Botswana Payment Portal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light-gray">
+    <img src="logo.png" alt="Logo" class="logo-img" style="width: 140px; height: 40px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-center">
+    <div class="options-box">
+      <h1>Annual school fees</h1>
+      <div class="dropdown mt-4">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Select an Option
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#" onclick="showDetails('option1', 'Primary')">Primary</a>
+          <a class="dropdown-item" href="#" onclick="showDetails('option2', 'Junior')">Junior</a>
+          <a class="dropdown-item" href="#" onclick="showDetails('option3', 'Senior')">Senior</a>
+        </div>
+      </div>
+
+      <!-- Forms  -->
+      <div id="detailsContainer" class="mt-4" style="display: none;">
+        <h3>Enter Your Details</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">Name of school</label>
+            <select class="form-control" id="name">
+              <option value="">Select an option</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="regnumber">Full name</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter your name">
+            <small id="emailError" class="text-danger" style="display: none;">Please enter your name.</small>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+            <small id="phoneError" class="text-danger" style="display: none;">Please enter your phone number.</small>
+          </div>
+          <button class="btn btn-primary btn-block service-button" onclick="validateForm('https://buy.stripe.com/test_4gw2b11xtb8pdzy145')">Continue</button>
+        </form>
+      </div>
+    </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    var selectedOption = "";
+
+    function showDetails(option, selectedOptionName) {
+      var detailsContainer = document.getElementById("detailsContainer");
+
+      // Hide details container initially
+      detailsContainer.style.display = "none";
+
+      // Show details container if option is selected
+      if (option === "option1" || option === "option2" || option === "option3") {
+        detailsContainer.style.display = "block";
+      }
+
+      // Update the options for the "Name of school" dropdown based on the selected option
+      var nameDropdown = document.getElementById("name");
+      nameDropdown.innerHTML = ""; // Clear existing options
+
+      if (option === "option1") {
+        nameDropdown.innerHTML += '<option value="">Select an option</option>';
+        nameDropdown.innerHTML += '<option value="School 1">Agosi Primary School</option>';
+        nameDropdown.innerHTML += '<option value="School 2">Khumaga Primary School</option>';
+        nameDropdown.innerHTML += '<option value="School 3">Bobonong Primary School</option>';
+        nameDropdown.innerHTML += '<option value="School 3">Lerala Primary School</option>';
+        nameDropdown.innerHTML += '<option value="School 3">Mahalapye Primary School</option>';
+      } else if (option === "option2") {
+        nameDropdown.innerHTML += '<option value="">Select an option</option>';
+        nameDropdown.innerHTML += '<option value="School 4">Badale CJSS</option>';
+        nameDropdown.innerHTML += '<option value="School 5">Merementsi CJSS</option>';
+        nameDropdown.innerHTML += '<option value="School 6">Orapa CJSS</option>';
+        nameDropdown.innerHTML += '<option value="School 6">Tonota CJSS</option>';
+        nameDropdown.innerHTML += '<option value="School 6">Bakwena Kgari CJSS</option>';
+      } else if (option === "option3") {
+        nameDropdown.innerHTML += '<option value="">Select an option</option>';
+        nameDropdown.innerHTML += '<option value="School 7">Letlhakane Senior</option>';
+        nameDropdown.innerHTML += '<option value="School 8">Madiba Senior</option>';
+        nameDropdown.innerHTML += '<option value="School 9">Shoshong Senior</option>';
+        nameDropdown.innerHTML += '<option value="School 9">Nata Senior</option>';
+        nameDropdown.innerHTML += '<option value="School 9">Ghanzi Senior</option>';
+      }
+
+      // Set the selected option in the dropdown menu
+      var optionElement = document.querySelector('.dropdown-item[data-option="' + selectedOptionName + '"]');
+      selectedOption = selectedOptionName;
+      document.getElementById("dropdownMenuButton").innerHTML = selectedOptionName;
+    }
+
+    function validateForm(pageUrl) {
+  var emailInput = document.getElementById("email");
+  var phoneInput = document.getElementById("phone");
+  var emailError = document.getElementById("emailError");
+  var phoneError = document.getElementById("phoneError");
+  var validForm = true;
+
+  // Check if email field is empty
+  if (emailInput.value.trim() === "") {
+    emailError.style.display = "block";
+    validForm = false;
+  } else {
+    emailError.style.display = "none";
+  }
+
+  // Check if phone field is empty
+  if (phoneInput.value.trim() === "") {
+    phoneError.style.display = "block";
+    validForm = false;
+  } else {
+    phoneError.style.display = "none";
+  }
+
+  if (validForm) {
+    openNewPage(pageUrl);
+  } else {
+    // Prevent form submission
+    event.preventDefault();
+  }
+}
+
+    function openNewPage(pageUrl) {
+      document.body.classList.add('fade-out');
+      setTimeout(function () {
+        window.location.href = pageUrl;
+      }, 300); // Adjust the delay to match the transition duration in CSS
+    }
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

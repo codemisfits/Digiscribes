@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .bg-light-gray {
+      background-color: #d3d3d3;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    .nav-link {
+      color: black;
+    }
+
+    body {
+      position: relative;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+
+form {
+  padding: 25px;
+  background: #fff;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 7px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+form h2 {  font-size: 27px;
+  text-align: center;
+  margin: 0px 0 30px;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+form label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+form input,
+form select {
+  height: 45px;
+  padding: 10px;
+  width: 100%;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #bfbfbf;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #9a9a9a;
+}
+
+form input.error,
+form select.error {
+  border-color: #f91919;
+  background: #f9f0f1;
+}
+
+form small {
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+  color: #f91919;
+}
+
+form .password i {
+  position: absolute;
+  right: 0px;
+  height: 45px;
+  top: 28px;
+  font-size: 13px;
+  line-height: 45px;
+  width: 45px;
+  cursor: pointer;
+  color: #939393;
+  text-align: center;
+}
+
+.submit-btn {
+  margin-top: 30px;
+}
+
+.submit-btn input {
+  color: white;
+  border: none;
+  height: auto;
+  font-size: 16px;
+  padding: 13px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  background: #1BB295;
+  transition: 0.2s ease;
+}
+
+.submit-btn input:hover {
+  background: #179b81;
+}
+
+    .blur-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      overflow: hidden;
+      filter: blur(10px);
+    }
+
+    .container-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .options-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+      background-color: #fff;
+    }
+
+    .error-text {
+      color: red;
+    }
+
+    .error {
+      border-color: #ff8080 !important;
+      box-shadow: 0 0 5px rgba(255, 128, 128, 0.5);
+    }
+
+  </style>
+  <title>Vehicle License Renewal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light-gray">
+    <img src="logo.png" alt="Logo" class="logo-img" style="width: 140px; height:40px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </nav>
+
+  <div class="blur-container"></div>
+
+  <div class="container-center">
+   <form action="https://buy.stripe.com/test_dR6dTJfojfoF0MM7ss">
+          <h2>Annual Vehicle License Renewal</h2>
+          <div class="form-group">
+            <label for="fullname">Owners Name / Business Name</label>
+            <input type="text" id="fullname" class="form-control" placeholder="Owners/Business Name">
+          </div>
+          <div class="form-group">
+            <label for="plate">License Plate Number</label>
+            <input type="text" id="plate" class="form-control" placeholder="Example: B111AMO">
+          </div>
+          <div class="form-group text-center">
+            <input type="submit" value="Pay" class="btn btn-primary">
+          </div>
+        </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var firearmNumber = document.getElementById("firearmNumber").value;
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+      var isValid = true;
+
+      if (firearmNumber === "") {
+        document.getElementById("firearmNumberError").textContent = "Please enter the firearm number.";
+        isValid = false;
+      } else {
+        document.getElementById("firearmNumberError").textContent = "";
+      }
+
+      if (name === "") {
+        document.getElementById("nameError").textContent = "Please enter your name.";
+        isValid = false;
+      } else {
+        document.getElementById("nameError").textContent = "";
+      }
+
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Please enter your email.";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").textContent = "";
+      }
+
+      if (phone === "") {
+        document.getElementById("phoneError").textContent = "Please enter your phone number.";
+        isValid = false;
+      } else {
+        document.getElementById("phoneError").textContent = "";
+      }
+
+      return isValid;
+    }
+  </script>
+
+  <script>
+    // Selecting form and input elements
+    const form = document.querySelector("form");
+
+    // Function to display error messages
+    const showError = (field, errorText) => {
+      field.classList.add("error");
+      const errorElement = document.createElement("small");
+      errorElement.classList.add("error-text");
+      errorElement.innerText = errorText;
+      field.closest(".form-group").appendChild(errorElement);
+    }
+
+    // Function to handle form submission
+    const handleFormData = (e) => {
+      e.preventDefault();
+
+      // Retrieving input elements
+      const fullnameInput = document.getElementById("fullname");
+      const plateInput = document.getElementById("plate");
+
+      // Getting trimmed values from input fields
+      const fullname = fullnameInput.value.trim();
+      const plate = plateInput.value.trim();
+
+      // Regular expression pattern for licensePlate validation
+      const platePattern = /B\d{3}[A-Z]{3}$/;
+
+      // Clearing previous error messages
+      document.querySelectorAll(".form-group .error").forEach(field => field.classList.remove("error"));
+      document.querySelectorAll(".error-text").forEach(errorText => errorText.remove());
+
+      // Performing validation checks
+      if (fullname === "") {
+        showError(fullnameInput, "Enter the Correct Owner Name / Business Name");
+      }
+      if (!platePattern.test(plate)) {
+        showError(plateInput, "Enter the Correct License Plate Number");
+      }
+      // Checking for any remaining errors before form submission
+      const errorInputs = document.querySelectorAll(".form-group .error");
+      if (errorInputs.length > 0) return;
+
+      // Submitting the form
+      form.submit();
+    }
+
+    // Handling form submission event
+    form.addEventListener("submit", handleFormData);
+  </script>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+</body>
+</html>

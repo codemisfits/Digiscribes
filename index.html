@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Template with Background Image</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+    body {
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .loading-container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content {
+      display: none;
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .btn-container {
+      margin-top: 20vh;
+    }
+
+    .btn-container .btn {
+      margin-top: 20px;
+      background-color: #C83200;
+      border-color: #2f3542;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+      transition: background-color 0.3s ease;
+      padding: 10px 28px;
+      font-size: 20px;
+    }
+
+    .btn-container .btn:hover {
+    background-color: #273c75;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="spinner-border text-light" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="header">
+      <h1 class="display-4">Botswana Online Payment Portal</h1>
+      <p class="lead">Make online payments conveniently</p>
+    </div>
+    <div class="btn-container">
+      <a href="#" class="btn btn-primary" onclick="openNewPage('Services.html')">Get Started</a>
+    </div>
+  </div>
+
+  <script>
+    function openNewPage(pageUrl) {
+      document.body.classList.add('fade-out');
+      setTimeout(function() {
+        window.location.href = pageUrl;
+      }, 300);
+    }
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Simulating a delay for demonstration purposes
+    setTimeout(function() {
+      document.querySelector('.loading-container').style.display = 'none';
+      document.querySelector('.content').style.display = 'flex';
+    }, 2000);
+  </script>
+</body>
+</html>

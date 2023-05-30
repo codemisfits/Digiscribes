@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>1GOB Payment Portal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <style>
+    .bg-light-gray {
+      background-color: #d3d3d3;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    .nav-link {
+      color: black;
+    }
+
+    .btn-primary {
+      background-color: #d3d3d3; /* Light gray color for the button background */
+      border-color: #d3d3d3; /* Light gray color for the button border */
+      color: black; /* Black font color for the button text */
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 40px;
+      color: white;
+    }
+
+    .page-transition {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    body {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    footer {
+      color: white;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light-gray" id="navbar">
+  <div class="container">
+    <img src="logo.png" alt="Logo" class="logo-img" style="width: 140px; height: 40px;">
+    <button class="navbar-toggler" type="button" onclick="toggleContent()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </nav>
+
+  <div class="header">
+    <h2>Botswana Online Payment Portal</h2>
+    <p>Make secure online payments conveniently.</p>
+  </div>
+
+  <!-- Container for services -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" onclick="openNewPage('Annual.html')">Annual school fees</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" onclick="openNewPage('Vehicle.html')">Vehicle license renewal</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" onclick="openNewPage('Services.html')">Tenders</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service4" onclick="selectService('#service4')">Police Fines & Charges</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service5" onclick="selectService('#service5')">Court Fines & Charges</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service6" onclick="selectService('#service6')">Council Rates</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service7" onclick="selectService('#service7')">Levies</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service8" onclick="selectService('#service8')">Garnishee Orders</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service9" onclick="selectService('#service9')">Service 9</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service10" onclick="selectService('#service10')">Service 10</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service11" onclick="selectService('#service11')">Service 11</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service12" onclick="selectService('#service12')">Service 12</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service13" onclick="selectService('#service13')">Service 13</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service14" onclick="selectService('#service14')">Service 14</button>
+    </div>
+    <div class="col-md-3 my-2">
+      <button class="btn btn-primary btn-block service-button" data-target="#service15" onclick="selectService('#service15')">Service 15</button>
+    </div>
+  </div>
+
+  <footer class="mt-5 text-center">
+    <p>&copy; 2023 C0de Mifits. All rights reserved. Services</p>
+  </footer>
+
+  <script>
+    function openNewPage(pageUrl) {
+      document.body.classList.add('fade-out');
+      setTimeout(function () {
+        window.location.href = pageUrl;
+      }, 300); // Adjust the delay to match the transition duration in CSS
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

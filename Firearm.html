@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .bg-light-gray {
+      background-color: #d3d3d3;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      color: black;
+    }
+
+    .navbar-toggler {
+      border-color: black;
+    }
+
+    .nav-link {
+      color: black;
+    }
+
+    body {
+      position: relative;
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blur-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      overflow: hidden;
+      filter: blur(10px);
+    }
+
+    .container-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .options-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+      background-color: #fff;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+  </style>
+  <title>Botswana Payment Portal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light-gray">
+    <img src="logo.png" alt="Logo" class="logo-img" style="width: 140px; height:40px;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </nav>
+
+  <div class="blur-container"></div>
+
+  <div class="container-center">
+    <div class="options-box">
+      <h2>Firearm License renewal</h2>
+
+      <!-- Input forms for details -->
+      <div id="detailsContainer" class="mt-4">
+        <h4>Enter Your Details</h4>
+        <form id="detailsForm" onsubmit="return validateForm()">
+          <div class="form-group">
+            <label for="firearmNumber">Firearm Registration Number</label>
+            <input type="text" class="form-control" id="firearmNumber" placeholder="Enter firearm number">
+            <span id="firearmNumberError" class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter full name">
+            <span id="nameError" class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            <span id="emailError" class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+            <span id="phoneError" class="error-message"></span>
+          </div>
+          <button class="btn btn-primary btn-block service-button" onclick="validateForm('pay.html')">Continue</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var firearmNumber = document.getElementById("firearmNumber").value;
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+      var isValid = true;
+
+      if (firearmNumber === "") {
+        document.getElementById("firearmNumberError").textContent = "Please enter the firearm number.";
+        isValid = false;
+      } else {
+        document.getElementById("firearmNumberError").textContent = "";
+      }
+
+      if (name === "") {
+        document.getElementById("nameError").textContent = "Please enter your name.";
+        isValid = false;
+      } else {
+        document.getElementById("nameError").textContent = "";
+      }
+
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Please enter your email.";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").textContent = "";
+      }
+
+      if (phone === "") {
+        document.getElementById("phoneError").textContent = "Please enter your phone number.";
+        isValid = false;
+      } else {
+        document.getElementById("phoneError").textContent = "";
+      }
+
+      return isValid;
+    }
+  </script>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+</body>
+</html>
